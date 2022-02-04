@@ -1,20 +1,26 @@
 package Tag.StandardTags;
 
-import Tag.AbstractTag;
+import Style.Style;
+import Tag.AbstractHtmlTag;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import static Tag.TagCentral.BODY;
 
-public class BodyTag extends AbstractTag {
+public class BodyTag extends AbstractHtmlTag {
+    private static final Boolean IS_VOID = false;
 
     public BodyTag() {
-        super(new HashMap<>(), false);
+        super(IS_VOID);
     }
 
-    public BodyTag(Map<String, Object> attributes) {
-        super(attributes, false);
+    public BodyTag(Style styleData) {
+        super(false, styleData);
+    }
+
+    public BodyTag( Style styleData, Map<String, Object> attributes) {
+        super(false, styleData, attributes);
     }
 
     @Override

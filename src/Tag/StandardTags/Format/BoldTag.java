@@ -1,20 +1,26 @@
 package Tag.StandardTags.Format;
 
-import Tag.AbstractTag;
+import Style.Style;
+import Tag.AbstractHtmlTag;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import static Tag.TagCentral.BOLD;
 
-public class BoldTag extends AbstractTag {
+public class BoldTag extends AbstractHtmlTag {
+    private static final Boolean IS_VOID = false;
 
     public BoldTag() {
-        super(new HashMap<>(), false);
+        super(IS_VOID);
     }
 
-    public BoldTag(Map<String, Object> attributes) {
-        super(attributes, false);
+    public BoldTag(Style styleData) {
+        super(IS_VOID, styleData);
+    }
+
+    public BoldTag(Style styleData, Map<String, Object> attributes) {
+        super(IS_VOID, styleData, attributes);
     }
 
     @Override

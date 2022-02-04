@@ -6,9 +6,13 @@ public interface Tag {
 
     public String getTagName();
 
-    public String translateAttributes();
-
     public String getStartTag(AbstractWebDocument.WebDocumentSecurityToken token);
 
     public String getEndTag(AbstractWebDocument.WebDocumentSecurityToken token);
+
+    public void setAttribute(String key, Object value);
+
+    public String translateAttributes();
+
+
 }

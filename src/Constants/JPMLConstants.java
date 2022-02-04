@@ -13,5 +13,11 @@ public class JPMLConstants {
 
     public static final String EMPTY_STRING = "";
 
-    public static final Map<String, Object> NO_ATTRIBUTES = new HashMap<>();
+    public static final String STYLE_ATTRIBUTE = "style";
+
+    public static final String STYLE_SPACE = " ";
+    public static final String STYLE_COLON = ":";
+    public static final String STYLE_SEMICOLON = ";";
+
+    public static final int ZERO = 0;
 }

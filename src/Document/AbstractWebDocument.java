@@ -1,6 +1,7 @@
 package Document;
 
-import Tag.Tag;
+import Style.Style;
+import Tag.HtmlTag;
 import Tag.TagFactory;
 
 import java.util.Map;
@@ -10,7 +11,7 @@ public abstract class AbstractWebDocument implements WebDocument {
     private static final WebDocumentSecurityToken securityToken = new WebDocumentSecurityToken();
 
     StringBuilder document;
-    Stack<Tag> elementStack;
+    Stack<HtmlTag> elementStack;
 
     AbstractWebDocument() {
         document = new StringBuilder();
@@ -18,14 +19,25 @@ public abstract class AbstractWebDocument implements WebDocument {
     }
 
     @Override
-    public Tag appendTag(String tag, Map<String, Object> attributes) {
-        Tag t = TagFactory.getTag(tag, attributes);
+    public void appendTag(String tag) {
+        HtmlTag t = TagFactory.getTag(tag);
         appendTag(t);
-        return t;
     }
 
     @Override
-    public void appendTag(Tag tag) {
+    public void appendTag(String tag, Style styleData) {
+        HtmlTag t = TagFactory.getTag(tag, styleData);
+        appendTag(t);
+    }
+
+    @Override
+    public void appendTag(String tag, Style styleData, Map<String, Object> attributes) {
+        HtmlTag t = TagFactory.getTag(tag, styleData, attributes);
+        appendTag(t);
+    }
+
+    @Override
+    public void appendTag(HtmlTag tag) {
         elementStack.push(tag);
         appendToDocument(tag.getStartTag(securityToken));
     }
@@ -36,7 +48,7 @@ public abstract class AbstractWebDocument implements WebDocument {
     }
 
     @Override
-    public void closeTag(Tag tag) throws Exception {
+    public void closeTag(HtmlTag tag) throws Exception {
         if(!elementStack.peek().getTagName().equals(tag.getTagName())) throw new Exception("Wrong tag closed");
         elementStack.pop();
         appendToDocument(tag.getEndTag(securityToken));

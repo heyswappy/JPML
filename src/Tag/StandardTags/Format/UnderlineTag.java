@@ -1,20 +1,26 @@
 package Tag.StandardTags.Format;
 
-import Tag.AbstractTag;
+import Style.Style;
+import Tag.AbstractHtmlTag;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import static Tag.TagCentral.UNDERLINE;
 
-public class UnderlineTag extends AbstractTag {
+public class UnderlineTag extends AbstractHtmlTag {
+    private static final Boolean IS_VOID = false;
 
     public UnderlineTag() {
-        super(new HashMap<>(), false);
+        super(IS_VOID);
     }
 
-    public UnderlineTag(Map<String, Object> attributes) {
-        super(attributes, false);
+    public UnderlineTag(Style styleData) {
+        super(false, styleData);
+    }
+
+    public UnderlineTag( Style styleData, Map<String, Object> attributes) {
+        super(false, styleData, attributes);
     }
 
     @Override

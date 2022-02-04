@@ -1,20 +1,26 @@
 package Tag.StandardTags.Format;
 
-import Tag.AbstractTag;
+import Style.Style;
+import Tag.AbstractHtmlTag;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import static Tag.TagCentral.BREAK;
 
-public class BreakTag extends AbstractTag {
+public class BreakTag extends AbstractHtmlTag {
+    private static final Boolean IS_VOID = true;
 
     public BreakTag() {
-        super(new HashMap<>(), true);
+        super(IS_VOID);
     }
 
-    public BreakTag(Map<String, Object> attributes) {
-        super(attributes, true);
+    public BreakTag(Style styleData) {
+        super(IS_VOID, styleData);
+    }
+
+    public BreakTag(Style styleData, Map<String, Object> attributes) {
+        super(true, styleData, attributes);
     }
 
     @Override

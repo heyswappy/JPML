@@ -1,7 +1,8 @@
 package Tag.StandardTags;
 
 
-import Tag.AbstractTag;;
+import Style.Style;
+import Tag.AbstractHtmlTag;;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,14 +10,19 @@ import java.util.Map;
 import static Tag.TagCentral.HEAD;
 
 
-public class HeadTag extends AbstractTag {
+public class HeadTag extends AbstractHtmlTag {
+    private static final Boolean IS_VOID = false;
 
     public HeadTag() {
-        super(new HashMap<>(), false);
+        super(IS_VOID);
     }
 
-    public HeadTag(Map<String, Object> attributes) {
-        super(attributes, false);
+    public HeadTag(Style styleData) {
+        super(false, styleData);
+    }
+
+    public HeadTag( Style styleData, Map<String, Object> attributes) {
+        super(false, styleData, attributes);
     }
 
     @Override
