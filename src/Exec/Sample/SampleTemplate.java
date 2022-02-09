@@ -13,50 +13,11 @@ public class SampleTemplate extends AbstractDocumentTemplate<SampleData> {
         // implement logic
         SampleDataPresenter presenter = data.presenter;
         document.appendTag("html");
+        document.appendTag("head");
+        document.closeLatestTag();
         {
-            document.appendTag("head");
-            document.closeLatestTag();
             document.appendTag("body");
-            for(int i=0; i<10; i++) {
-                document.appendTag("b");
-                document.insertData(String.valueOf(i));
-                document.closeLatestTag();
-                document.appendTag("br");
-            }
-            //
-            document.appendTag("b");
-            document.insertData(presenter.s);
-            document.closeLatestTag();
-            document.appendTag("br");
-            //
-            document.appendTag("b");
-            document.insertData(presenter.d.toString());
-            document.closeLatestTag();
-            document.appendTag("br");
-            //
-            document.appendTag("b");
-            document.insertData(presenter.i.toString());
-            document.closeLatestTag();
-            document.appendTag("br");
-            //
-            document.appendTag("b");
-            document.insertData(presenter.b.toString());
-            document.closeLatestTag();
-            document.appendTag("br");
-            //
-            document.appendTag("b");
-            document.insertData(presenter.f.toString());
-            document.closeLatestTag();
-            document.appendTag("br");
-            //
-            Style t = new ConcreteStyle();
-            t.addStyle("color", "blue");
-            t.addStyle("border", "1px dashed red");
-            document.appendTag("b", t);
-            document.insertData(presenter.l.toString());
-            document.closeLatestTag();
-            document.appendTag("br");
-            //
+            document.appendComponent(new SampleInnerDataTemplate(), data);
             document.closeLatestTag();
         }
         document.closeLatestTag();
