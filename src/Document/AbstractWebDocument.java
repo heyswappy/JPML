@@ -1,8 +1,10 @@
 package Document;
 
+import DocumentData.AbstractDocumentData;
 import Style.Style;
 import Tag.HtmlTag;
 import Tag.TagFactory;
+import Template.DocumentTemplate;
 
 import java.util.Map;
 import java.util.Stack;
@@ -40,6 +42,12 @@ public abstract class AbstractWebDocument implements WebDocument {
     public void appendTag(HtmlTag tag) {
         elementStack.push(tag);
         appendToDocument(tag.getStartTag(securityToken));
+    }
+
+    public <AbstractDocumentDataChild extends AbstractDocumentData> void appendComponent(
+            DocumentTemplate<AbstractDocumentDataChild> document, AbstractDocumentDataChild data) throws Exception {
+        String component = document.build(data).build();
+        appendToDocument(component);
     }
 
     @Override
