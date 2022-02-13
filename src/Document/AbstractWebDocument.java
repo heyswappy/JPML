@@ -9,6 +9,8 @@ import Template.DocumentTemplate;
 import java.util.Map;
 import java.util.Stack;
 
+import Exception.ExceptionUtils;
+
 public abstract class AbstractWebDocument implements WebDocument {
     private static final WebDocumentSecurityToken securityToken = new WebDocumentSecurityToken();
 
@@ -45,19 +47,21 @@ public abstract class AbstractWebDocument implements WebDocument {
     }
 
     public <AbstractDocumentDataChild extends AbstractDocumentData> void appendComponent(
-            DocumentTemplate<AbstractDocumentDataChild> document, AbstractDocumentDataChild data) throws Exception {
+            DocumentTemplate<AbstractDocumentDataChild> document, AbstractDocumentDataChild data) {
         String component = document.build(data).build();
         appendToDocument(component);
     }
 
     @Override
-    public void closeLatestTag() throws Exception {
+    public void closeLatestTag() {
         closeTag(elementStack.peek());
     }
 
     @Override
-    public void closeTag(HtmlTag tag) throws Exception {
-        if(!elementStack.peek().getTagName().equals(tag.getTagName())) throw new Exception("Wrong tag closed");
+    public void closeTag(HtmlTag tag) {
+        if(!elementStack.peek().getTagName().equals(tag.getTagName())) {
+            throw ExceptionUtils.getWrongTagClosedException(elementStack.peek().getTagName(), tag.getTagName());
+        }
         elementStack.pop();
         appendToDocument(tag.getEndTag(securityToken));
     }

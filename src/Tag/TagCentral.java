@@ -1,6 +1,5 @@
 package Tag;
 
-import Style.Style;
 import Tag.StandardTags.BodyTag;
 import Tag.StandardTags.Format.BoldTag;
 import Tag.StandardTags.Format.BreakTag;
@@ -9,9 +8,8 @@ import Tag.StandardTags.HeadTag;
 import Tag.StandardTags.HtmlTag;
 
 import java.lang.reflect.Constructor;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+
+import Exception.ExceptionUtils;
 
 public enum TagCentral {
     // Tags
@@ -40,8 +38,7 @@ public enum TagCentral {
             return cls.getConstructor(signature);
         }
         catch (Exception e) {
-            System.out.println(e.getMessage());
-            throw new RuntimeException(e);
+            throw ExceptionUtils.getConstructorNotFoundExceptionWithClassAndSignature(cls, signature, e);
         }
     }
 

@@ -20,11 +20,11 @@ public interface WebDocument {
     public void appendTag(HtmlTag tag);
 
     public <AbstractDocumentDataChild extends AbstractDocumentData> void appendComponent(
-            DocumentTemplate<AbstractDocumentDataChild> document, AbstractDocumentDataChild data) throws Exception;
+            DocumentTemplate<AbstractDocumentDataChild> document, AbstractDocumentDataChild data);
 
-    void closeLatestTag() throws Exception;
+    void closeLatestTag();
 
-    public void closeTag(HtmlTag tag) throws Exception;
+    public void closeTag(HtmlTag tag);
 
     public String build();
 }

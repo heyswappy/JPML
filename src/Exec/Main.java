@@ -7,7 +7,7 @@ import Exec.Sample.SampleTemplate;
 import Template.AbstractDocumentTemplate;
 
 public class Main {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         System.out.println("HelloWorld");
         // init
         SampleDataPresenter dp = new SampleDataPresenter(1, "s", 0f, true, 0L, Double.parseDouble("0"));

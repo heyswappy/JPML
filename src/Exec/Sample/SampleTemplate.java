@@ -9,7 +9,7 @@ import Template.AbstractDocumentTemplate;
 public class SampleTemplate extends AbstractDocumentTemplate<SampleData> {
 
     @Override
-    public WebDocument build(WebDocument document, SampleData data) throws Exception {
+    public WebDocument build(WebDocument document, SampleData data) {
         // implement logic
         SampleDataPresenter presenter = data.presenter;
         document.appendTag("html");
@@ -25,7 +25,7 @@ public class SampleTemplate extends AbstractDocumentTemplate<SampleData> {
     }
 
     @Override
-    public WebDocument build(SampleData data) throws Exception {
+    public WebDocument build(SampleData data) {
         WebDocument document = new ConcreteWebDocument();
         return build(document, data);
     }

@@ -8,7 +8,7 @@ import Template.AbstractDocumentTemplate;
 
 public class SampleInnerDataTemplate extends AbstractDocumentTemplate<SampleData> {
     @Override
-    public WebDocument build(WebDocument document, SampleData data) throws Exception {
+    public WebDocument build(WebDocument document, SampleData data) {
         SampleDataPresenter presenter = data.presenter;
         for(int i=0; i<10; i++) {
             document.appendTag("b");
@@ -60,7 +60,7 @@ public class SampleInnerDataTemplate extends AbstractDocumentTemplate<SampleData
     }
 
     @Override
-    public WebDocument build(SampleData data) throws Exception {
+    public WebDocument build(SampleData data) {
         WebDocument document = new ConcreteWebDocument();
         return build(document, data);
     }

@@ -1,12 +1,13 @@
 package Tag;
 
-
 import Style.Style;
 
 import java.lang.reflect.Constructor;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+
+import Exception.ExceptionUtils;
 
 public class TagFactory {
 
@@ -37,7 +38,7 @@ public class TagFactory {
             return (HtmlTag) constructor.newInstance();
         }
         catch (Exception e) {
-            throw new RuntimeException();
+            throw ExceptionUtils.getTagInstantiationExceptionWithTagNameAndSignature(tagName, arg1Signature, e);
         }
     }
 
@@ -47,7 +48,7 @@ public class TagFactory {
             return (HtmlTag) constructor.newInstance(styleData);
         }
         catch (Exception e) {
-            throw new RuntimeException();
+            throw ExceptionUtils.getTagInstantiationExceptionWithTagNameAndSignature(tagName, arg2Signature, e);
         }
     }
 
@@ -57,7 +58,7 @@ public class TagFactory {
             return (HtmlTag) constructor.newInstance(attributes);
         }
         catch (Exception e) {
-            throw new RuntimeException();
+            throw ExceptionUtils.getTagInstantiationExceptionWithTagNameAndSignature(tagName, arg3signature, e);
         }
     }
 }
