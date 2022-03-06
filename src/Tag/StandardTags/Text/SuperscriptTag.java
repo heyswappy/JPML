@@ -14,14 +14,6 @@ public class SuperscriptTag extends AbstractHtmlTag {
         super(IS_VOID);
     }
 
-    public SuperscriptTag(Style styleData) {
-        super(IS_VOID, styleData);
-    }
-
-    public SuperscriptTag(Style styleData, Map<String, Object> attributes) {
-        super(IS_VOID, styleData, attributes);
-    }
-
     @Override
     public String getTagName() {
         return SUPERSCRIPT.getName();

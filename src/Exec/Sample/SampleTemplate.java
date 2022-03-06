@@ -2,8 +2,6 @@ package Exec.Sample;
 
 import Document.ConcreteWebDocument;
 import Document.WebDocument;
-import Style.Style;
-import Style.ConcreteStyle;
 import Template.AbstractDocumentTemplate;
 
 public class SampleTemplate extends AbstractDocumentTemplate<SampleData> {

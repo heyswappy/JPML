@@ -14,16 +14,8 @@ public class OList extends AbstractHtmlTag {
         super(IS_VOID);
     }
 
-    public OList(Style styleData) {
-        super(IS_VOID, styleData);
-    }
-
-    public OList(Style styleData, Map<String, Object> attributes) {
-        super(IS_VOID, styleData, attributes);
-    }
-
     public void setType(String type) {
-        this.setAttribute("type", type);
+        this.addAttribute("type", type);
     }
 
     @Override

@@ -14,17 +14,9 @@ public class TableHeaderTag extends AbstractHtmlTag {
         super(IS_VOID);
     }
 
-    public TableHeaderTag(Style styleData) {
-        super(IS_VOID, styleData);
-    }
-
-    public TableHeaderTag(Style styleData, Map<String, Object> attributes) {
-        super(IS_VOID, styleData, attributes);
-    }
-
     public void setSpan(int row, int col) {
-        this.setAttribute("rowspan", row);
-        this.setAttribute("colspan", col);
+        this.addAttribute("rowspan", row);
+        this.addAttribute("colspan", col);
     }
 
     @Override

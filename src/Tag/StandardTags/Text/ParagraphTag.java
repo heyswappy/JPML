@@ -14,14 +14,6 @@ public class ParagraphTag extends AbstractHtmlTag {
         super(IS_VOID);
     }
 
-    public ParagraphTag(Style styleData) {
-        super(IS_VOID, styleData);
-    }
-
-    public ParagraphTag(Style styleData, Map<String, Object> attributes) {
-        super(IS_VOID, styleData, attributes);
-    }
-
     @Override
     public String getTagName() {
         return PARAGRAPH.getName();

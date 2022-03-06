@@ -15,14 +15,6 @@ public class BreakTag extends AbstractHtmlTag {
         super(IS_VOID);
     }
 
-    public BreakTag(Style styleData) {
-        super(IS_VOID, styleData);
-    }
-
-    public BreakTag(Style styleData, Map<String, Object> attributes) {
-        super(true, styleData, attributes);
-    }
-
     @Override
     public String getTagName() {
         return BREAK.getName();

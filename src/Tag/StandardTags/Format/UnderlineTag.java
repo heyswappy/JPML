@@ -15,14 +15,6 @@ public class UnderlineTag extends AbstractHtmlTag {
         super(IS_VOID);
     }
 
-    public UnderlineTag(Style styleData) {
-        super(false, styleData);
-    }
-
-    public UnderlineTag( Style styleData, Map<String, Object> attributes) {
-        super(false, styleData, attributes);
-    }
-
     @Override
     public String getTagName() {
         return UNDERLINE.getName();

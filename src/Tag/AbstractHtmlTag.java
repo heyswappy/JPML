@@ -3,7 +3,7 @@ package Tag;
 import Constants.JPMLConstants;
 import Document.AbstractWebDocument;
 import Style.Style;
-import Style.ConcreteStyle;
+import Style.ObjectStyle;
 import Utils.CollectionUtils;
 
 import java.util.HashMap;
@@ -11,39 +11,38 @@ import java.util.Map;
 
 public abstract class AbstractHtmlTag implements HtmlTag {
     private Map<String, Object> attributes;
-    private final Style styleData;
+    private Style styleData;
     private final boolean voidElement;
 
     public AbstractHtmlTag(boolean isVoidTag) {
         this.attributes = new HashMap<>();
-        this.styleData = new ConcreteStyle();
+        this.styleData = new ObjectStyle();
         this.voidElement = isVoidTag;
     }
 
-    public AbstractHtmlTag(boolean isVoidTag, Style styleData) {
-        this.attributes = new HashMap<>();
-        this.styleData = styleData;
-        this.voidElement = isVoidTag;
+    public AbstractHtmlTag withAttributes(Map<String, Object> attributes) {
+        this.setAttribute(attributes);
+        return this;
     }
 
-    public AbstractHtmlTag(boolean isVoidTag, Style styleData, Map<String, Object> attributes) {
-        this.attributes = CollectionUtils.cloneMap(attributes);
-        this.styleData = styleData;
-        this.voidElement = isVoidTag;
+    public AbstractHtmlTag withStyle(Style style) {
+        this.setStyle(style);
+        return this;
     }
 
     @Override
-    public void setAttribute(String key, Object value) {
+    public void setAttribute(Map<String, Object> attributes) {
+        this.attributes = CollectionUtils.cloneMap(attributes);
+    }
+
+    @Override
+    public void addAttribute(String key, Object value) {
         attributes.put(key, value);
     }
 
-    public void setAttributes(Map<String, Object> attributes) {
-        this.attributes = CollectionUtils.cloneMap(attributes);
-    }
-
     @Override
-    public void setStyle(String value) {
-        setAttribute(JPMLConstants.STYLE_ATTRIBUTE, value);
+    public void setStyle(Style style) {
+        styleData = style;
     }
 
     @Override

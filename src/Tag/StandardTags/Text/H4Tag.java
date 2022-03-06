@@ -14,14 +14,6 @@ public class H4Tag extends AbstractHtmlTag {
         super(IS_VOID);
     }
 
-    public H4Tag(Style styleData) {
-        super(IS_VOID, styleData);
-    }
-
-    public H4Tag(Style styleData, Map<String, Object> attributes) {
-        super(IS_VOID, styleData, attributes);
-    }
-
     @Override
     public String getTagName() {
         return H4.getName();

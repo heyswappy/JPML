@@ -19,16 +19,10 @@ public class TagFactory {
     private static final Class[] arg1Signature = {};
     private static final Class[] arg2Signature = {Style.class};
     private static final Class[] arg3signature = {Style.class, Map.class};
-
+    
     static {
         Arrays.stream(TagCentral.values()).forEach(val ->
                 tagMappingArg1.put(val.getName(), TagCentral.extractConstructor(val.getAssociatedClass(), arg1Signature))
-        );
-        Arrays.stream(TagCentral.values()).forEach(val ->
-                tagMappingArg2.put(val.getName(), TagCentral.extractConstructor(val.getAssociatedClass(), arg2Signature))
-        );
-        Arrays.stream(TagCentral.values()).forEach(val ->
-                tagMappingArg3.put(val.getName(), TagCentral.extractConstructor(val.getAssociatedClass(), arg3signature))
         );
     }
 
@@ -43,22 +37,39 @@ public class TagFactory {
     }
 
     public static HtmlTag getTag(String tagName, Style styleData) {
-        Constructor constructor = tagMappingArg2.get(tagName);
+        Constructor constructor = tagMappingArg1.get(tagName);
         try {
-            return (HtmlTag) constructor.newInstance(styleData);
+            HtmlTag tag = (HtmlTag) constructor.newInstance();
+            tag.setStyle(styleData);
+            return tag;
         }
         catch (Exception e) {
-            throw ExceptionUtils.getTagInstantiationExceptionWithTagNameAndSignature(tagName, arg2Signature, e);
+            throw ExceptionUtils.getTagInstantiationExceptionWithTagNameAndSignature(tagName, arg1Signature, e);
+        }
+    }
+
+    public static HtmlTag getTag(String tagName, Map<String, Object> attributes) {
+        Constructor constructor = tagMappingArg1.get(tagName);
+        try {
+            HtmlTag tag = (HtmlTag) constructor.newInstance(attributes);
+            tag.setAttribute(attributes);
+            return tag;
+        }
+        catch (Exception e) {
+            throw ExceptionUtils.getTagInstantiationExceptionWithTagNameAndSignature(tagName, arg1Signature, e);
         }
     }
 
     public static HtmlTag getTag(String tagName, Style styleData, Map<String, Object> attributes) {
-        Constructor constructor = tagMappingArg3.get(tagName);
+        Constructor constructor = tagMappingArg1.get(tagName);
         try {
-            return (HtmlTag) constructor.newInstance(attributes);
+            HtmlTag tag = (HtmlTag) constructor.newInstance(attributes);
+            tag.setStyle(styleData);
+            tag.setAttribute(attributes);
+            return tag;
         }
         catch (Exception e) {
-            throw ExceptionUtils.getTagInstantiationExceptionWithTagNameAndSignature(tagName, arg3signature, e);
+            throw ExceptionUtils.getTagInstantiationExceptionWithTagNameAndSignature(tagName, arg1Signature, e);
         }
     }
 }

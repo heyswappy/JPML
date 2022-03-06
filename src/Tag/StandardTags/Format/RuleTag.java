@@ -15,14 +15,6 @@ public class RuleTag extends AbstractHtmlTag {
         super(IS_VOID);
     }
 
-    public RuleTag(Style styleData) {
-        super(false, styleData);
-    }
-
-    public RuleTag( Style styleData, Map<String, Object> attributes) {
-        super(false, styleData, attributes);
-    }
-
     @Override
     public String getTagName() {
         return RULE.getName();

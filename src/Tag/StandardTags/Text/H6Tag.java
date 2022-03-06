@@ -14,14 +14,6 @@ public class H6Tag extends AbstractHtmlTag {
         super(IS_VOID);
     }
 
-    public H6Tag(Style styleData) {
-        super(IS_VOID, styleData);
-    }
-
-    public H6Tag(Style styleData, Map<String, Object> attributes) {
-        super(IS_VOID, styleData, attributes);
-    }
-
     @Override
     public String getTagName() {
         return H6.getName();

@@ -6,15 +6,15 @@ import Utils.CollectionUtils;
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class AbstractStyle implements Style{
+public class ObjectStyle implements Style {
 
     private final Map<String, String> styleAttributes;
 
-    public AbstractStyle() {
+    public ObjectStyle() {
         this.styleAttributes = new HashMap<>();
     }
 
-    public AbstractStyle(Map<String, String> styleAttributes) {
+    public ObjectStyle(Map<String, String> styleAttributes) {
         this.styleAttributes = CollectionUtils.cloneMap(styleAttributes);
     }
 

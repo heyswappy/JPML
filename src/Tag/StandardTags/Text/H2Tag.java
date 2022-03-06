@@ -14,14 +14,6 @@ public class H2Tag extends AbstractHtmlTag {
         super(IS_VOID);
     }
 
-    public H2Tag(Style styleData) {
-        super(IS_VOID, styleData);
-    }
-
-    public H2Tag(Style styleData, Map<String, Object> attributes) {
-        super(IS_VOID, styleData, attributes);
-    }
-
     @Override
     public String getTagName() {
         return H2.getName();

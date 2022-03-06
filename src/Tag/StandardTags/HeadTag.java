@@ -17,14 +17,6 @@ public class HeadTag extends AbstractHtmlTag {
         super(IS_VOID);
     }
 
-    public HeadTag(Style styleData) {
-        super(false, styleData);
-    }
-
-    public HeadTag( Style styleData, Map<String, Object> attributes) {
-        super(false, styleData, attributes);
-    }
-
     @Override
     public String getTagName() {
         return HEAD.getName();

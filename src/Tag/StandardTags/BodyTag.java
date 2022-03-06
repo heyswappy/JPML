@@ -15,14 +15,6 @@ public class BodyTag extends AbstractHtmlTag {
         super(IS_VOID);
     }
 
-    public BodyTag(Style styleData) {
-        super(false, styleData);
-    }
-
-    public BodyTag( Style styleData, Map<String, Object> attributes) {
-        super(false, styleData, attributes);
-    }
-
     @Override
     public String getTagName() {
         return BODY.getName();

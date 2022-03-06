@@ -14,14 +14,6 @@ public class TableTag extends AbstractHtmlTag {
         super(IS_VOID);
     }
 
-    public TableTag(Style styleData) {
-        super(IS_VOID, styleData);
-    }
-
-    public TableTag(Style styleData, Map<String, Object> attributes) {
-        super(IS_VOID, styleData, attributes);
-    }
-
     @Override
     public String getTagName() {
         return TABLE.getName();

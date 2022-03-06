@@ -15,14 +15,6 @@ public class BoldTag extends AbstractHtmlTag {
         super(IS_VOID);
     }
 
-    public BoldTag(Style styleData) {
-        super(IS_VOID, styleData);
-    }
-
-    public BoldTag(Style styleData, Map<String, Object> attributes) {
-        super(IS_VOID, styleData, attributes);
-    }
-
     @Override
     public String getTagName() {
         return BOLD.getName();

@@ -14,16 +14,8 @@ public class ColumnGroupTag extends AbstractHtmlTag {
         super(IS_VOID);
     }
 
-    public ColumnGroupTag(Style styleData) {
-        super(IS_VOID, styleData);
-    }
-
-    public ColumnGroupTag(Style styleData, Map<String, Object> attributes) {
-        super(IS_VOID, styleData, attributes);
-    }
-
     public void setSpan(int span) {
-        this.setAttribute("span", span);
+        this.addAttribute("span", span);
     }
 
     @Override

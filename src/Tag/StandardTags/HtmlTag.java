@@ -15,14 +15,6 @@ public class HtmlTag extends AbstractHtmlTag {
         super(IS_VOID);
     }
 
-    public HtmlTag(Style styleData) {
-        super(false, styleData);
-    }
-
-    public HtmlTag( Style styleData, Map<String, Object> attributes) {
-        super(false, styleData, attributes);
-    }
-
     @Override
     public String getTagName() {
         return HTML.getName();

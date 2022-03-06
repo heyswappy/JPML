@@ -2,6 +2,8 @@ package Tag;
 
 import Document.AbstractWebDocument;
 
+import java.util.Map;
+
 public interface Tag {
 
     public String getTagName();
@@ -10,7 +12,9 @@ public interface Tag {
 
     public String getEndTag(AbstractWebDocument.WebDocumentSecurityToken token);
 
-    public void setAttribute(String key, Object value);
+    public void setAttribute(Map<String, Object> attributes);
+
+    public void addAttribute(String key, Object value);
 
     public String translateAttributes();
 

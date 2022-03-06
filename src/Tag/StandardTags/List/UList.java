@@ -14,14 +14,6 @@ public class UList extends AbstractHtmlTag {
         super(IS_VOID);
     }
 
-    public UList(Style styleData) {
-        super(IS_VOID, styleData);
-    }
-
-    public UList(Style styleData, Map<String, Object> attributes) {
-        super(IS_VOID, styleData, attributes);
-    }
-
     @Override
     public String getTagName() {
         return U_LIST.getName();

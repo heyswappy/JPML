@@ -3,7 +3,7 @@ package Exec.Sample;
 import Document.ConcreteWebDocument;
 import Document.WebDocument;
 import Style.Style;
-import Style.ConcreteStyle;
+import Style.ObjectStyle;
 import Template.AbstractDocumentTemplate;
 
 public class SampleInnerDataTemplate extends AbstractDocumentTemplate<SampleData> {
@@ -48,7 +48,7 @@ public class SampleInnerDataTemplate extends AbstractDocumentTemplate<SampleData
         document.closeLatestTag();
         document.appendTag("br");
         //
-        Style t = new ConcreteStyle();
+        Style t = new ObjectStyle();
         t.addStyle("color", "blue");
         t.addStyle("border", "1px dashed red");
         document.appendTag("b", t);
