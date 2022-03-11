@@ -1,9 +1,6 @@
 package Tag;
 
-import Document.AbstractWebDocument;
 import Style.Style;
-
-import java.util.Map;
 
 public interface HtmlTag extends Tag {
 

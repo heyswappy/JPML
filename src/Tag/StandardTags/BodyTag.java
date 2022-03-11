@@ -1,10 +1,6 @@
 package Tag.StandardTags;
 
-import Style.Style;
 import Tag.AbstractHtmlTag;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import static Tag.TagCentral.BODY;
 

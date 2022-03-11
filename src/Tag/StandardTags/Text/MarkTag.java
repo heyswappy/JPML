@@ -1,9 +1,6 @@
 package Tag.StandardTags.Text;
 
-import Style.Style;
 import Tag.AbstractHtmlTag;
-
-import java.util.Map;
 
 import static Tag.TagCentral.MARK;
 

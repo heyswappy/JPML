@@ -1,9 +1,6 @@
 package Tag.StandardTags.Table;
 
-import Style.Style;
 import Tag.AbstractHtmlTag;
-
-import java.util.Map;
 
 import static Tag.TagCentral.COLUMN_GROUP;
 

@@ -1,8 +1,5 @@
 package Constants;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class JPMLConstants {
     public static final String TAG_BRACKET_START = "<";
     public static final String TAG_BRACKET_END = ">";
