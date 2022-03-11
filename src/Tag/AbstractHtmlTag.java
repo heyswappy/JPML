@@ -31,6 +31,16 @@ public abstract class AbstractHtmlTag implements HtmlTag {
     }
 
     @Override
+    public void setId(String id) {
+        this.addAttribute("id", id);
+    }
+
+    @Override
+    public void setName(String name) {
+        this.addAttribute("name", name);
+    }
+
+    @Override
     public void setAttribute(Map<String, Object> attributes) {
         this.attributes = CollectionUtils.cloneMap(attributes);
     }
