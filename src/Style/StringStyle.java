@@ -2,7 +2,7 @@ package Style;
 
 import Constants.JPMLConstants;
 
-public class StringStyle implements Style {
+public class StringStyle implements Style<StringStyle> {
 
     private String styleData;
 
@@ -11,11 +11,12 @@ public class StringStyle implements Style {
     }
 
     @Override
-    public void addStyle(String key, String value) {
+    public StringStyle addStyle(String key, String value) {
         styleData += key +
                 JPMLConstants.STYLE_COLON +
                 value +
                 JPMLConstants.STYLE_SEMICOLON;
+        return this;
     }
 
     @Override

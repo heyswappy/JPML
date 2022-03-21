@@ -6,7 +6,7 @@ import Utils.CollectionUtils;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ObjectStyle implements Style {
+public class ObjectStyle implements Style<ObjectStyle> {
 
     private final Map<String, String> styleAttributes;
 
@@ -19,8 +19,9 @@ public class ObjectStyle implements Style {
     }
 
     @Override
-    public void addStyle(String key, String value) {
+    public ObjectStyle addStyle(String key, String value) {
         styleAttributes.put(key, value);
+        return this;
     }
 
     @Override

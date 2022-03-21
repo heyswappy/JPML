@@ -1,8 +1,8 @@
 package Style;
 
-public interface Style {
+public interface Style<ChildStyle extends Style<?>> {
 
-    public void addStyle(String key, String value);
+    public ChildStyle addStyle(String key, String value);
 
     public String build();
 }
