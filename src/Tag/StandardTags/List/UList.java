@@ -4,7 +4,7 @@ import Tag.AbstractHtmlTag;
 
 import static Tag.TagCentral.U_LIST;
 
-public class UList extends AbstractHtmlTag {
+public class UList extends AbstractHtmlTag<UList> {
     private static final Boolean IS_VOID = false;
 
     public UList() {

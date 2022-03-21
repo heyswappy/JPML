@@ -2,13 +2,13 @@ package Tag;
 
 import Style.Style;
 
-public interface HtmlTag extends Tag {
+public interface HtmlTag<ChildTag extends HtmlTag<?>> extends Tag<ChildTag> {
 
-    public void setId(String id);
+    public ChildTag setId(String id);
 
-    public void setName(String name);
+    public ChildTag setName(String name);
 
-    public void setStyle(Style style);
+    public ChildTag setStyle(Style style);
 
-    public void addStyle(String key, String value);
+    public ChildTag addStyle(String key, String value);
 }

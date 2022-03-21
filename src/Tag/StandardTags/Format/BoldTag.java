@@ -4,7 +4,7 @@ import Tag.AbstractHtmlTag;
 
 import static Tag.TagCentral.BOLD;
 
-public class BoldTag extends AbstractHtmlTag {
+public class BoldTag extends AbstractHtmlTag<BoldTag> {
     private static final Boolean IS_VOID = false;
 
     public BoldTag() {

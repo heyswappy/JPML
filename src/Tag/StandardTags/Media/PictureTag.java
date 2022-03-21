@@ -4,7 +4,7 @@ import Tag.AbstractHtmlTag;
 
 import static Tag.TagCentral.PICTURE;
 
-public class PictureTag extends AbstractHtmlTag {
+public class PictureTag extends AbstractHtmlTag<PictureTag> {
     private static final Boolean IS_VOID = false;
 
     public PictureTag() {

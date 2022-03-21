@@ -4,7 +4,7 @@ import Tag.AbstractHtmlTag;
 
 import static Tag.TagCentral.UNDERLINE;
 
-public class UnderlineTag extends AbstractHtmlTag {
+public class UnderlineTag extends AbstractHtmlTag<UnderlineTag> {
     private static final Boolean IS_VOID = false;
 
     public UnderlineTag() {

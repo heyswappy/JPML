@@ -4,7 +4,7 @@ import Tag.AbstractHtmlTag;
 
 import static Tag.TagCentral.MARK;
 
-public class MarkTag extends AbstractHtmlTag {
+public class MarkTag extends AbstractHtmlTag<MarkTag> {
     private static final Boolean IS_VOID = false;
 
     public MarkTag() {

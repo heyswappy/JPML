@@ -4,19 +4,21 @@ import Tag.AbstractHtmlTag;
 
 import static Tag.TagCentral.LINK;
 
-public class LinkTag extends AbstractHtmlTag {
+public class LinkTag extends AbstractHtmlTag<LinkTag> {
     private static final Boolean IS_VOID = false;
 
     public LinkTag() {
         super(IS_VOID);
     }
 
-    public void setHref(String value) {
+    public LinkTag setHref(String value) {
         this.addAttribute("href", value);
+        return this;
     }
 
-    public void setResourceType(String type) {
+    public LinkTag setResourceType(String type) {
         this.addAttribute("rel", type);
+        return this;
     }
 
     @Override

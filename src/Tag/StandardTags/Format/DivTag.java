@@ -4,7 +4,7 @@ import Tag.AbstractHtmlTag;
 
 import static Tag.TagCentral.DIV;
 
-public class DivTag extends AbstractHtmlTag {
+public class DivTag extends AbstractHtmlTag<DivTag> {
     private static final Boolean IS_VOID = false;
 
     public DivTag() {

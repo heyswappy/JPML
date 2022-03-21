@@ -4,54 +4,66 @@ import Tag.AbstractHtmlTag;
 
 import static Tag.TagCentral.INPUT;
 
-public class InputTag extends AbstractHtmlTag {
+public class InputTag extends AbstractHtmlTag<InputTag> {
     private static final Boolean IS_VOID = false;
 
     public InputTag() {
         super(IS_VOID);
     }
 
-    public void setChecked(String value) {
+    public InputTag setChecked(String value) {
         this.addAttribute("checked", value);
+        return this;
     }
-    public void setDisabled(String disabled) {
+
+    public InputTag setDisabled(String disabled) {
         this.addAttribute("disabled", disabled);
+        return this;
     }
 
-    public void setFormAssociation(String elementId) {
+    public InputTag setFormAssociation(String elementId) {
         this.addAttribute("form", elementId);
+        return this;
     }
 
-    public void setMax(String value) {
+    public InputTag setMax(String value) {
         this.addAttribute("max", value);
+        return this;
     }
 
-    public void setMaxLength(int value) {
+    public InputTag setMaxLength(int value) {
         this.addAttribute("maxlength", value);
+        return this;
     }
 
-    public void setMin(String value) {
+    public InputTag setMin(String value) {
         this.addAttribute("min", value);
+        return this;
     }
 
-    public void setMinLength(int value) {
+    public InputTag setMinLength(int value) {
         this.addAttribute("minlength", value);
+        return this;
     }
 
-    public void setReadonly(String value) {
+    public InputTag setReadonly(String value) {
         this.addAttribute("readonly", value);
+        return this;
     }
 
-    public void setRequired(String value) {
+    public InputTag setRequired(String value) {
         this.addAttribute("required", value);
+        return this;
     }
 
-    public void setType(InputType type) {
+    public InputTag setType(InputType type) {
         this.addAttribute("type", type);
+        return this;
     }
 
-    public void setDefaultValue(String defaultValue) {
+    public InputTag setDefaultValue(String defaultValue) {
         this.addAttribute("value", defaultValue);
+        return this;
     }
 
     @Override

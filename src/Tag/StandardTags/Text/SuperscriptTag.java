@@ -4,7 +4,7 @@ import Tag.AbstractHtmlTag;
 
 import static Tag.TagCentral.SUPERSCRIPT;
 
-public class SuperscriptTag extends AbstractHtmlTag {
+public class SuperscriptTag extends AbstractHtmlTag<SuperscriptTag> {
     private static final Boolean IS_VOID = false;
 
     public SuperscriptTag() {

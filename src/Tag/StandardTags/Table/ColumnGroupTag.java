@@ -4,15 +4,16 @@ import Tag.AbstractHtmlTag;
 
 import static Tag.TagCentral.COLUMN_GROUP;
 
-public class ColumnGroupTag extends AbstractHtmlTag {
+public class ColumnGroupTag extends AbstractHtmlTag<ColumnGroupTag> {
     private static final Boolean IS_VOID = false;
 
     public ColumnGroupTag() {
         super(IS_VOID);
     }
 
-    public void setSpan(int span) {
+    public ColumnGroupTag setSpan(int span) {
         this.addAttribute("span", span);
+        return this;
     }
 
     @Override

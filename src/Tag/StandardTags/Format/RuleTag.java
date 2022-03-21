@@ -4,7 +4,7 @@ import Tag.AbstractHtmlTag;
 
 import static Tag.TagCentral.RULE;
 
-public class RuleTag extends AbstractHtmlTag {
+public class RuleTag extends AbstractHtmlTag<RuleTag> {
     private static final Boolean IS_VOID = true;
 
     public RuleTag() {

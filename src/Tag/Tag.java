@@ -4,7 +4,7 @@ import Document.AbstractWebDocument;
 
 import java.util.Map;
 
-public interface Tag {
+public interface Tag<ChildTag extends Tag<?>> {
 
     public String getTagName();
 
@@ -12,9 +12,9 @@ public interface Tag {
 
     public String getEndTag(AbstractWebDocument.WebDocumentSecurityToken token);
 
-    public void setAttribute(Map<String, Object> attributes);
+    public ChildTag setAttribute(Map<String, Object> attributes);
 
-    public void addAttribute(String key, Object value);
+    public ChildTag addAttribute(String key, Object value);
 
     public String translateAttributes();
 

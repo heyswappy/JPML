@@ -4,19 +4,21 @@ import Tag.AbstractHtmlTag;
 
 import static Tag.TagCentral.LABEL;
 
-public class LabelTag extends AbstractHtmlTag {
+public class LabelTag extends AbstractHtmlTag<LabelTag> {
     private static final Boolean IS_VOID = false;
 
     public LabelTag() {
         super(IS_VOID);
     }
 
-    public void setElementAssociation(String elementId) {
+    public LabelTag setElementAssociation(String elementId) {
         this.addAttribute("for", elementId);
+        return this;
     }
 
-    public void setFormAssociation(String elementId) {
+    public LabelTag setFormAssociation(String elementId) {
         this.addAttribute("form", elementId);
+        return this;
     }
 
     @Override

@@ -4,7 +4,7 @@ import Tag.AbstractHtmlTag;
 
 import static Tag.TagCentral.BODY;
 
-public class BodyTag extends AbstractHtmlTag {
+public class BodyTag extends AbstractHtmlTag<BodyTag> {
     private static final Boolean IS_VOID = false;
 
     public BodyTag() {

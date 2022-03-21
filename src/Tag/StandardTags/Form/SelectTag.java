@@ -4,15 +4,16 @@ import Tag.AbstractHtmlTag;
 
 import static Tag.TagCentral.SELECT;
 
-public class SelectTag extends AbstractHtmlTag {
+public class SelectTag extends AbstractHtmlTag<SelectTag> {
     private static final Boolean IS_VOID = false;
 
     public SelectTag() {
         super(IS_VOID);
     }
 
-    public void setType(String type) {
+    public SelectTag setType(String type) {
         this.addAttribute("type", type);
+        return this;
     }
 
     @Override

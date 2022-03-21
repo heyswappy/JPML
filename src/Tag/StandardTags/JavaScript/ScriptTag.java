@@ -4,7 +4,7 @@ import Tag.AbstractHtmlTag;
 
 import static Tag.TagCentral.SCRIPT;
 
-public class ScriptTag extends AbstractHtmlTag {
+public class ScriptTag extends AbstractHtmlTag<ScriptTag> {
     private static final Boolean IS_VOID = false;
 
     public ScriptTag() {

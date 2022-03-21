@@ -4,23 +4,26 @@ import Tag.AbstractHtmlTag;
 
 import static Tag.TagCentral.TEXT_AREA;
 
-public class TextAreaTag extends AbstractHtmlTag {
+public class TextAreaTag extends AbstractHtmlTag<TextAreaTag> {
     private static final Boolean IS_VOID = false;
 
     public TextAreaTag() {
         super(IS_VOID);
     }
 
-    public void setMaxLength(String length) {
+    public TextAreaTag setMaxLength(String length) {
         this.addAttribute("maxlength", length);
+        return this;
     }
 
-    public void setRows(String rows) {
+    public TextAreaTag setRows(String rows) {
         this.addAttribute("rows", rows);
+        return this;
     }
 
-    public void setWrap(String type) {
+    public TextAreaTag setWrap(String type) {
         this.addAttribute("wrap", type);
+        return this;
     }
 
     @Override

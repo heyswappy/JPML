@@ -4,19 +4,21 @@ import Tag.AbstractHtmlTag;
 
 import static Tag.TagCentral.BUTTON;
 
-public class ButtonTag extends AbstractHtmlTag {
+public class ButtonTag extends AbstractHtmlTag<ButtonTag> {
     private static final Boolean IS_VOID = false;
 
     public ButtonTag() {
         super(IS_VOID);
     }
 
-    public void setType(String type) {
+    public ButtonTag setType(String type) {
         this.addAttribute("type", type);
+        return this;
     }
 
-    public void setValue(String value) {
+    public ButtonTag setValue(String value) {
         this.addAttribute("value", value);
+        return this;
     }
 
     @Override

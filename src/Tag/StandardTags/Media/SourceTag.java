@@ -4,23 +4,26 @@ import Tag.AbstractHtmlTag;
 
 import static Tag.TagCentral.SOURCE;
 
-public class SourceTag extends AbstractHtmlTag {
+public class SourceTag extends AbstractHtmlTag<SourceTag> {
     private static final Boolean IS_VOID = false;
 
     public SourceTag() {
         super(IS_VOID);
     }
 
-    public void setSource(String value) {
+    public SourceTag setSource(String value) {
         this.addAttribute("src", value);
+        return this;
     }
 
-    public void setSourceSet(String value) {
+    public SourceTag setSourceSet(String value) {
         this.addAttribute("srcset", value);
+        return this;
     }
 
-    public void setType(String type) {
+    public SourceTag setType(String type) {
         this.addAttribute("type", type);
+        return this;
     }
 
     @Override

@@ -4,35 +4,41 @@ import Tag.AbstractHtmlTag;
 
 import static Tag.TagCentral.AUDIO;
 
-public class AudioTag extends AbstractHtmlTag {
+public class AudioTag extends AbstractHtmlTag<AudioTag> {
     private static final Boolean IS_VOID = false;
 
     public AudioTag() {
         super(IS_VOID);
     }
 
-    public void setAutoPlay(String value) {
+    public AudioTag setAutoPlay(String value) {
         this.addAttribute("autoplay", value);
+        return this;
     }
 
-    public void setControls(String value) {
+    public AudioTag setControls(String value) {
         this.addAttribute("controls", value);
+        return this;
     }
 
-    public void setLoop(String value) {
+    public AudioTag setLoop(String value) {
         this.addAttribute("loop", value);
+        return this;
     }
 
-    public void setMuted(String value) {
+    public AudioTag setMuted(String value) {
         this.addAttribute("muted", value);
+        return this;
     }
 
-    public void setPreload(String value) {
+    public AudioTag setPreload(String value) {
         this.addAttribute("preload", value);
+        return this;
     }
 
-    public void setSource(String value) {
+    public AudioTag setSource(String value) {
         this.addAttribute("src", value);
+        return this;
     }
 
     @Override

@@ -4,7 +4,7 @@ import Tag.AbstractHtmlTag;
 
 import static Tag.TagCentral.SUBSCRIPT;
 
-public class SubscriptTag extends AbstractHtmlTag {
+public class SubscriptTag extends AbstractHtmlTag<SubscriptTag> {
     private static final Boolean IS_VOID = false;
 
     public SubscriptTag() {

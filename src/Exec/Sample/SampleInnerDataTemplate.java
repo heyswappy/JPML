@@ -4,6 +4,7 @@ import Document.ConcreteWebDocument;
 import Document.WebDocument;
 import Style.Style;
 import Style.ObjectStyle;
+import Tag.StandardTags.Format.BoldTag;
 import Template.AbstractDocumentTemplate;
 
 public class SampleInnerDataTemplate extends AbstractDocumentTemplate<SampleData> {
@@ -48,10 +49,10 @@ public class SampleInnerDataTemplate extends AbstractDocumentTemplate<SampleData
         document.closeLatestTag();
         document.appendTag("br");
         //
-        Style t = new ObjectStyle();
-        t.addStyle("color", "blue");
-        t.addStyle("border", "1px dashed red");
-        document.appendTag("b", t);
+        Style boldStyle = new ObjectStyle()
+                .addStyle("color", "blue")
+                .addStyle("border", "1px dashed red");
+        document.appendTag(  new BoldTag().setStyle(boldStyle));
         document.insertData(presenter.l.toString());
         document.closeLatestTag();
         document.appendTag("br");

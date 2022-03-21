@@ -4,7 +4,7 @@ import Tag.AbstractHtmlTag;
 
 import static Tag.TagCentral.H4;
 
-public class H4Tag extends AbstractHtmlTag {
+public class H4Tag extends AbstractHtmlTag<H4Tag> {
     private static final Boolean IS_VOID = false;
 
     public H4Tag() {

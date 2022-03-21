@@ -4,39 +4,46 @@ import Tag.AbstractHtmlTag;
 
 import static Tag.TagCentral.VIDEO;
 
-public class VideoTag extends AbstractHtmlTag {
+public class VideoTag extends AbstractHtmlTag<VideoTag> {
     private static final Boolean IS_VOID = false;
 
     public VideoTag() {
         super(IS_VOID);
     }
 
-    public void setAutoPlay(String value) {
+    public VideoTag setAutoPlay(String value) {
         this.addAttribute("autoplay", value);
+        return this;
     }
 
-    public void setControls(String value) {
+    public VideoTag setControls(String value) {
         this.addAttribute("controls", value);
+        return this;
     }
 
-    public void setLoop(String value) {
+    public VideoTag setLoop(String value) {
         this.addAttribute("loop", value);
+        return this;
     }
 
-    public void setMuted(String value) {
+    public VideoTag setMuted(String value) {
         this.addAttribute("muted", value);
+        return this;
     }
 
-    public void setPoster(String value) {
+    public VideoTag setPoster(String value) {
         this.addAttribute("poster", value);
+        return this;
     }
 
-    public void setPreload(String value) {
+    public VideoTag setPreload(String value) {
         this.addAttribute("preload", value);
+        return this;
     }
 
-    public void setSource(String value) {
+    public VideoTag setSource(String value) {
         this.addAttribute("src", value);
+        return this;
     }
 
     @Override

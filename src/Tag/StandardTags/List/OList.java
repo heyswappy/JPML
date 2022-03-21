@@ -4,15 +4,16 @@ import Tag.AbstractHtmlTag;
 
 import static Tag.TagCentral.O_LIST;
 
-public class OList extends AbstractHtmlTag {
+public class OList extends AbstractHtmlTag<OList> {
     private static final Boolean IS_VOID = false;
 
     public OList() {
         super(IS_VOID);
     }
 
-    public void setType(String type) {
+    public OList setType(String type) {
         this.addAttribute("type", type);
+        return this;
     }
 
     @Override

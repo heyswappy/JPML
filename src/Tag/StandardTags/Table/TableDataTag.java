@@ -4,16 +4,21 @@ import Tag.AbstractHtmlTag;
 
 import static Tag.TagCentral.TABLE_DATA;
 
-public class TableDataTag extends AbstractHtmlTag {
+public class TableDataTag extends AbstractHtmlTag<TableDataTag> {
     private static final Boolean IS_VOID = false;
 
     public TableDataTag() {
         super(IS_VOID);
     }
 
-    public void setSpan(int row, int col) {
-        this.addAttribute("rowspan", row);
+    public TableDataTag setColSpan(int col) {
         this.addAttribute("colspan", col);
+        return this;
+    }
+
+    public TableDataTag setRowSpan(int row) {
+        this.addAttribute("rowspan", row);
+        return this;
     }
 
     @Override

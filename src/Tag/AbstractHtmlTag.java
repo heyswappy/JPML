@@ -9,7 +9,8 @@ import Utils.CollectionUtils;
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class AbstractHtmlTag implements HtmlTag {
+public abstract class AbstractHtmlTag<ChildTag extends AbstractHtmlTag<?>> implements HtmlTag<ChildTag> {
+    protected ChildTag typecastedReference;
     private Map<String, Object> attributes;
     private Style styleData;
     private final boolean voidElement;
@@ -18,46 +19,53 @@ public abstract class AbstractHtmlTag implements HtmlTag {
         this.attributes = new HashMap<>();
         this.styleData = new ObjectStyle();
         this.voidElement = isVoidTag;
+        typecastedReference = (ChildTag) this;
     }
 
-    public AbstractHtmlTag withAttributes(Map<String, Object> attributes) {
+    public ChildTag withAttributes(Map<String, Object> attributes) {
         this.setAttribute(attributes);
-        return this;
+        return typecastedReference;
     }
 
-    public AbstractHtmlTag withStyle(Style style) {
+    public ChildTag withStyle(Style style) {
         this.setStyle(style);
-        return this;
+        return typecastedReference;
     }
 
     @Override
-    public void setId(String id) {
+    public ChildTag setId(String id) {
         this.addAttribute("id", id);
+        return typecastedReference;
     }
 
     @Override
-    public void setName(String name) {
+    public ChildTag setName(String name) {
         this.addAttribute("name", name);
+        return typecastedReference;
     }
 
     @Override
-    public void setAttribute(Map<String, Object> attributes) {
+    public ChildTag setAttribute(Map<String, Object> attributes) {
         this.attributes = CollectionUtils.cloneMap(attributes);
+        return typecastedReference;
     }
 
     @Override
-    public void addAttribute(String key, Object value) {
+    public ChildTag addAttribute(String key, Object value) {
         attributes.put(key, value);
+        return typecastedReference;
     }
 
     @Override
-    public void setStyle(Style style) {
+    public ChildTag setStyle(Style style) {
         styleData = style;
+        return typecastedReference;
     }
 
     @Override
-    public void addStyle(String key, String value) {
+    public ChildTag addStyle(String key, String value) {
         styleData.addStyle(key, value);
+        return typecastedReference;
     }
 
     @Override

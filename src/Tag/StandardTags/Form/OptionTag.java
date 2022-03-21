@@ -4,23 +4,26 @@ import Tag.AbstractHtmlTag;
 
 import static Tag.TagCentral.OPTION;
 
-public class OptionTag extends AbstractHtmlTag {
+public class OptionTag extends AbstractHtmlTag<OptionTag> {
     private static final Boolean IS_VOID = false;
 
     public OptionTag() {
         super(IS_VOID);
     }
 
-    public void setLabel(String label) {
+    public OptionTag setLabel(String label) {
         this.addAttribute("label", label);
+        return this;
     }
 
-    public void setDefaultValue(String selected) {
+    public OptionTag setDefaultValue(String selected) {
         this.addAttribute("selected", selected);
+        return this;
     }
 
-    public void setValue(String value) {
+    public OptionTag setValue(String value) {
         this.addAttribute("value", value);
+        return this;
     }
 
     @Override

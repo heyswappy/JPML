@@ -4,7 +4,7 @@ import Tag.AbstractHtmlTag;;
 
 import static Tag.TagCentral.LIST_ITEM;
 
-public class ListItem extends AbstractHtmlTag {
+public class ListItem extends AbstractHtmlTag<ListItem> {
     private static final Boolean IS_VOID = false;
 
     public ListItem() {

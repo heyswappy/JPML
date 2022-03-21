@@ -4,7 +4,7 @@ import Tag.AbstractHtmlTag;
 
 import static Tag.TagCentral.H2;
 
-public class H2Tag extends AbstractHtmlTag {
+public class H2Tag extends AbstractHtmlTag<H2Tag> {
     private static final Boolean IS_VOID = false;
 
     public H2Tag() {

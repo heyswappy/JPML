@@ -4,7 +4,7 @@ import Tag.AbstractHtmlTag;
 
 import static Tag.TagCentral.TABLE_ROW;
 
-public class TableRowTag extends AbstractHtmlTag {
+public class TableRowTag extends AbstractHtmlTag<TableRowTag> {
     private static final Boolean IS_VOID = false;
 
     public TableRowTag() {
