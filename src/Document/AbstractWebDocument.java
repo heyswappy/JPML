@@ -60,8 +60,15 @@ public abstract class AbstractWebDocument<ChildDocument extends AbstractWebDocum
     }
 
     @Override
-    public void closeLatestTag() {
+    public void closeTag() {
         closeTag(elementStack.peek());
+    }
+
+    @Override
+    public void closeTag(int n) {
+        while(n-- > 0) {
+            closeTag(elementStack.peek());
+        }
     }
 
     @Override

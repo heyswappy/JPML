@@ -14,28 +14,28 @@ public class SampleInnerDataTemplate extends AbstractDocumentTemplate<SampleData
         for(int i=0; i<10; i++) {
             document.appendTag("b");
             document.insertData(String.valueOf(i));
-            document.closeLatestTag();
+            document.closeTag();
             document.appendTag("br");
         }
         //
         document.appendTag("b")
                 .insertData(presenter.s)
-                .closeLatestTag();
+                .closeTag();
         document.appendTag("br");
         //
         document.appendTag("b")
                 .insertData(presenter.d.toString())
-                .closeLatestTag();
+                .closeTag();
         document.appendTag("br");
         //
         document.appendTag("b")
                 .insertData(presenter.i.toString())
-                .closeLatestTag();
+                .closeTag();
         document.appendTag("br");
         //
         document.appendTag("b")
                 .insertData(presenter.b.toString())
-                .closeLatestTag();
+                .closeTag();
         document.appendTag("br");
         //
         if(!presenter.s.equals("end")) {
@@ -46,7 +46,7 @@ public class SampleInnerDataTemplate extends AbstractDocumentTemplate<SampleData
         //
         document.appendTag("b")
                 .insertData(presenter.f.toString())
-                .closeLatestTag();
+                .closeTag();
         document.appendTag("br");
         //
         Style boldStyle = new ObjectStyle()
@@ -54,7 +54,7 @@ public class SampleInnerDataTemplate extends AbstractDocumentTemplate<SampleData
                 .addStyle("border", "1px dashed red");
         document.appendTag(  new BoldTag().setStyle(boldStyle))
                 .insertData(presenter.l.toString())
-                .closeLatestTag();
+                .closeTag();
         document.appendTag("br");
         return document;
     }

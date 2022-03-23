@@ -22,7 +22,9 @@ public interface WebDocument<ChildDocument extends WebDocument<?>> {
     public <AbstractDocumentDataChild extends AbstractDocumentData> ChildDocument appendComponent(
             DocumentTemplate<AbstractDocumentDataChild> document, AbstractDocumentDataChild data);
 
-    public void closeLatestTag();
+    public void closeTag();
+
+    public void closeTag(int n);
 
     public void closeTag(HtmlTag tag);
 
