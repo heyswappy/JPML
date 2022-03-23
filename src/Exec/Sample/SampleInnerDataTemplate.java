@@ -18,24 +18,24 @@ public class SampleInnerDataTemplate extends AbstractDocumentTemplate<SampleData
             document.appendTag("br");
         }
         //
-        document.appendTag("b");
-        document.insertData(presenter.s);
-        document.closeLatestTag();
+        document.appendTag("b")
+                .insertData(presenter.s)
+                .closeLatestTag();
         document.appendTag("br");
         //
-        document.appendTag("b");
-        document.insertData(presenter.d.toString());
-        document.closeLatestTag();
+        document.appendTag("b")
+                .insertData(presenter.d.toString())
+                .closeLatestTag();
         document.appendTag("br");
         //
-        document.appendTag("b");
-        document.insertData(presenter.i.toString());
-        document.closeLatestTag();
+        document.appendTag("b")
+                .insertData(presenter.i.toString())
+                .closeLatestTag();
         document.appendTag("br");
         //
-        document.appendTag("b");
-        document.insertData(presenter.b.toString());
-        document.closeLatestTag();
+        document.appendTag("b")
+                .insertData(presenter.b.toString())
+                .closeLatestTag();
         document.appendTag("br");
         //
         if(!presenter.s.equals("end")) {
@@ -44,19 +44,18 @@ public class SampleInnerDataTemplate extends AbstractDocumentTemplate<SampleData
             document.appendComponent(new SampleTemplate(), p);
         }
         //
-        document.appendTag("b");
-        document.insertData(presenter.f.toString());
-        document.closeLatestTag();
+        document.appendTag("b")
+                .insertData(presenter.f.toString())
+                .closeLatestTag();
         document.appendTag("br");
         //
         Style boldStyle = new ObjectStyle()
                 .addStyle("color", "blue")
                 .addStyle("border", "1px dashed red");
-        document.appendTag(  new BoldTag().setStyle(boldStyle));
-        document.insertData(presenter.l.toString());
-        document.closeLatestTag();
+        document.appendTag(  new BoldTag().setStyle(boldStyle))
+                .insertData(presenter.l.toString())
+                .closeLatestTag();
         document.appendTag("br");
-
         return document;
     }
 

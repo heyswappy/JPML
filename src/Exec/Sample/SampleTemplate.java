@@ -2,6 +2,7 @@ package Exec.Sample;
 
 import Document.ConcreteWebDocument;
 import Document.WebDocument;
+import DocumentData.AbstractDocumentData;
 import Template.AbstractDocumentTemplate;
 
 public class SampleTemplate extends AbstractDocumentTemplate<SampleData> {
@@ -11,12 +12,12 @@ public class SampleTemplate extends AbstractDocumentTemplate<SampleData> {
         // implement logic
         SampleDataPresenter presenter = data.presenter;
         document.appendTag("html");
-        document.appendTag("head");
-        document.closeLatestTag();
+        document.appendTag("head")
+                .closeLatestTag();
         {
             document.appendTag("body");
-            document.appendComponent(new SampleInnerDataTemplate(), data);
-            document.closeLatestTag();
+            document.appendComponent(new SampleInnerDataTemplate(), data)
+                    .closeLatestTag();
         }
         document.closeLatestTag();
         return document;

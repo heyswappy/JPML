@@ -7,22 +7,22 @@ import Template.DocumentTemplate;
 
 import java.util.Map;
 
-public interface WebDocument {
+public interface WebDocument<ChildDocument extends WebDocument<?>> {
 
-    public void insertData(String s);
+    public ChildDocument insertData(String s);
 
-    void appendTag(String tag);
+    public ChildDocument appendTag(String tag);
 
-    public void appendTag(String tag, Style styleData);
+    public ChildDocument appendTag(String tag, Style styleData);
 
-    public void appendTag(String tag, Style styleData, Map<String, Object> attributes);
+    public ChildDocument appendTag(String tag, Style styleData, Map<String, Object> attributes);
 
-    public void appendTag(HtmlTag tag);
+    public ChildDocument appendTag(HtmlTag tag);
 
-    public <AbstractDocumentDataChild extends AbstractDocumentData> void appendComponent(
+    public <AbstractDocumentDataChild extends AbstractDocumentData> ChildDocument appendComponent(
             DocumentTemplate<AbstractDocumentDataChild> document, AbstractDocumentDataChild data);
 
-    void closeLatestTag();
+    public void closeLatestTag();
 
     public void closeTag(HtmlTag tag);
 

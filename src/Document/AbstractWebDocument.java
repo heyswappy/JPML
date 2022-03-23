@@ -11,45 +11,52 @@ import java.util.Stack;
 
 import Exception.ExceptionUtils;
 
-public abstract class AbstractWebDocument implements WebDocument {
+public abstract class AbstractWebDocument<ChildDocument extends AbstractWebDocument<?>>
+        implements WebDocument<ChildDocument> {
     private static final WebDocumentSecurityToken securityToken = new WebDocumentSecurityToken();
-
+    protected ChildDocument typecastedReference;
     StringBuilder document;
     Stack<HtmlTag> elementStack;
 
     AbstractWebDocument() {
         document = new StringBuilder();
         elementStack = new Stack<>();
+        typecastedReference = (ChildDocument) this;
     }
 
     @Override
-    public void appendTag(String tag) {
+    public ChildDocument appendTag(String tag) {
         HtmlTag t = TagFactory.getTag(tag);
         appendTag(t);
+        return typecastedReference;
     }
 
     @Override
-    public void appendTag(String tag, Style styleData) {
+    public ChildDocument appendTag(String tag, Style styleData) {
         HtmlTag t = TagFactory.getTag(tag, styleData);
         appendTag(t);
+        return typecastedReference;
     }
 
     @Override
-    public void appendTag(String tag, Style styleData, Map<String, Object> attributes) {
+    public ChildDocument appendTag(String tag, Style styleData, Map<String, Object> attributes) {
         HtmlTag t = TagFactory.getTag(tag, styleData, attributes);
         appendTag(t);
+        return typecastedReference;
     }
 
     @Override
-    public void appendTag(HtmlTag tag) {
+    public ChildDocument appendTag(HtmlTag tag) {
         elementStack.push(tag);
         appendToDocument(tag.getStartTag(securityToken));
+        return typecastedReference;
     }
 
-    public <AbstractDocumentDataChild extends AbstractDocumentData> void appendComponent(
+    public <AbstractDocumentDataChild extends AbstractDocumentData> ChildDocument appendComponent(
             DocumentTemplate<AbstractDocumentDataChild> document, AbstractDocumentDataChild data) {
         String component = document.build(data).build();
         appendToDocument(component);
+        return typecastedReference;
     }
 
     @Override
@@ -67,8 +74,9 @@ public abstract class AbstractWebDocument implements WebDocument {
     }
 
     @Override
-    public void insertData(String s) {
+    public ChildDocument insertData(String s) {
         appendToDocument(s);
+        return typecastedReference;
     }
 
     private void appendToDocument(String data) {
