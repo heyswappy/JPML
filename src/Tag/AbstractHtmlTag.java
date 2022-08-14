@@ -74,6 +74,12 @@ public abstract class AbstractHtmlTag<ChildTag extends AbstractHtmlTag<?>> imple
     }
 
     @Override
+    public ChildTag setClass(String className) {
+        attributes.put("class", className);
+        return typecastedReference;
+    }
+
+    @Override
     public String translateAttributes() {
         mergeStyles();
         final StringBuilder sb = new StringBuilder();
