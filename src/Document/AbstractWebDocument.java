@@ -47,7 +47,9 @@ public abstract class AbstractWebDocument<ChildDocument extends AbstractWebDocum
 
     @Override
     public ChildDocument appendTag(HtmlTag tag) {
-        elementStack.push(tag);
+        if(!tag.isVoidTag()) {
+            elementStack.push(tag);
+        }
         appendToDocument(tag.getStartTag(securityToken));
         return typecastedReference;
     }
@@ -73,11 +75,13 @@ public abstract class AbstractWebDocument<ChildDocument extends AbstractWebDocum
 
     @Override
     public void closeTag(HtmlTag tag) {
-        if(!elementStack.peek().getTagName().equals(tag.getTagName())) {
-            throw ExceptionUtils.getWrongTagClosedException(elementStack.peek().getTagName(), tag.getTagName());
+        if(!tag.isVoidTag()) {
+            if (!elementStack.peek().getTagName().equals(tag.getTagName())) {
+                throw ExceptionUtils.getWrongTagClosedException(elementStack.peek().getTagName(), tag.getTagName());
+            }
+            elementStack.pop();
+            appendToDocument(tag.getEndTag(securityToken));
         }
-        elementStack.pop();
-        appendToDocument(tag.getEndTag(securityToken));
     }
 
     @Override

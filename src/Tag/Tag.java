@@ -6,6 +6,8 @@ import java.util.Map;
 
 public interface Tag<ChildTag extends Tag<?>> {
 
+    public boolean isVoidTag();
+
     public String getTagName();
 
     public String getStartTag(AbstractWebDocument.WebDocumentSecurityToken token);

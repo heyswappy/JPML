@@ -33,6 +33,11 @@ public abstract class AbstractHtmlTag<ChildTag extends AbstractHtmlTag<?>> imple
     }
 
     @Override
+    public boolean isVoidTag() {
+        return voidElement;
+    }
+
+    @Override
     public ChildTag setId(String id) {
         this.addAttribute("id", id);
         return typecastedReference;
